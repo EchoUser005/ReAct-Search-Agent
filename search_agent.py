@@ -85,7 +85,7 @@ class ReActAgent:
             if is_last_step:
                 accumulated_history += "\n\n[系统提示] 这是最后一步，请根据已有信息输出 Final Answer。"
 
-            user_context = {"question": question, "history": accumulated_history}
+            user_context = {"question": question}
             user = self._render_prompt(user_tpl, **user_context)
 
             messages = [

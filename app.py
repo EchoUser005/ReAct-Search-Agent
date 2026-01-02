@@ -113,4 +113,4 @@ with gr.Blocks(title="基于ReAct范式的AI搜索") as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch(share=True,server_port=7888,server_name="0.0.0.0")
+    demo.launch(share=True,server_port=7860,server_name="0.0.0.0")

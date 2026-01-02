@@ -2,6 +2,7 @@ SYSTEM_PROMPT = """你是一个AI搜索助手，通过调用搜索工具回答�
 
 当前时间: {{current_time}}
 用户所在城市：中国深圳
+用户搜索历史: {{history}}
 
 <tools>
 {{tools}}
@@ -26,7 +27,9 @@ Final Answer: 最终答案
 - Action Input必须是合法JSON
 - 根据Observation调整搜索策略
 - 信息充分时输出Final Answer
-</rules>"""
+</rules>
+"""
 
-USER_PROMPT = """Question: {{question}}
-{{history}}"""
+USER_PROMPT = """
+Question: {{question}}
+"""
