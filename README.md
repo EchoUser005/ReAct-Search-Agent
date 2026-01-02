@@ -22,7 +22,7 @@
 
 ```bash
 # 克隆项目
-git clone <your-repo-url>
+git clone https://github.com/EchoUser005/ReAct-Search-Agent.git
 cd ReAct-Search-Agent
 
 # 安装依赖
