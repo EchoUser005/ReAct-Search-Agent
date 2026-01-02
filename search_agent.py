@@ -117,7 +117,7 @@ class ReActAgent:
                     yield "\n\n**Final Answer:** " + (parsed.get("thought") or "无法生成答案")
                 return
 
-            if parsed.get("action") and parsed.get("action_input"):
+            if parsed.get("action") and parsed.get("action_input") is not None:
                 observation = self._call_tool(parsed["action"], parsed["action_input"])
                 yield f"\n\n**Observation:**\n\n[{observation}]\n\n"
 

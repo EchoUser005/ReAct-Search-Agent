@@ -38,7 +38,7 @@ def web_search(query: str, freshness: str = "noLimit", count: int = 5) -> str:
 
 
 @tool
-def tool_current_location() -> str:
+def get_location() -> str:
     """获取用户当前位置"""
     location = {
         "lng": 114.055586,

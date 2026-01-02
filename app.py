@@ -1,13 +1,13 @@
 import gradio as gr
 from search_agent import ReActAgent
 from config.prompts import SYSTEM_PROMPT, USER_PROMPT
-from config.function_tools import web_search
+from config.function_tools import web_search,get_location
 from config.llm import get_llm
 
 
 def create_agent():
     llm = get_llm()
-    return ReActAgent(llm, tools=[web_search], max_steps=5)
+    return ReActAgent(llm, tools=[web_search,get_location], max_steps=5)
 
 
 def format_output(text: str) -> str:
@@ -51,8 +51,8 @@ css = """
 }
 """
 
-with gr.Blocks(title="AI 搜索助手", css=css) as demo:
-    gr.Markdown("# 🔍 AI 搜索助手")
+with gr.Blocks(title="基于ReAct范式的AI搜索") as demo:
+    gr.Markdown("# 🔍AI搜索助手")
 
     with gr.Tab("搜索"):
         with gr.Row():
@@ -78,7 +78,7 @@ with gr.Blocks(title="AI 搜索助手", css=css) as demo:
 
         gr.Examples(
             examples=[
-                ["深圳今天天气怎么样"],
+                ["我附近有什么好吃的"],
                 ["最近有什么AI领域的重大新闻"],
                 ["川普今天说了什么"],
             ],
@@ -113,4 +113,4 @@ with gr.Blocks(title="AI 搜索助手", css=css) as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch(share=True,server_port=7866,server_name="0.0.0.0")
+    demo.launch(share=True,server_port=7888,server_name="0.0.0.0")
